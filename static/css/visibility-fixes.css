@@ -1,0 +1,62 @@
+/* Section visibility fixes */
+section {
+    visibility: visible !important;
+    display: block !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.container {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.section-header {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+/* Make sure all sections are properly spaced */
+section {
+    padding: 60px 0 !important;
+    margin: 20px 0 !important;
+}
+
+/* Fix potential overflow issues */
+.testimonials-slider {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+}
+
+/* Ensure testimonial cards are visible */
+.testimonial-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Fix potential z-index issues with nav */
+#navbar {
+    z-index: 1000 !important;
+}
+
+/* Make all section titles visible */
+.section-title, .section-subtitle {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Make testimonial controls visible */
+.testimonial-controls {
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Ensure buttons are visible and clickable */
+button, .btn {
+    position: relative !important;
+    z-index: 5 !important;
+}

@@ -1,0 +1,101 @@
+/* Section spacing fixes */
+
+/* Reduce overall spacing between sections */
+section {
+    padding: 60px 0 !important; /* Reduced from 100px */
+    margin: 20px 0 !important; /* Reduced from 50px */
+}
+
+/* Adjust section header spacing */
+.section-header {
+    margin-bottom: 40px !important; /* Reduced from 60px */
+}
+
+/* Adjust specific section spacing */
+.hero-section {
+    padding-bottom: 40px !important;
+}
+
+.about-section {
+    padding-top: 60px !important;
+    padding-bottom: 40px !important;
+}
+
+.experience-section {
+    padding-top: 50px !important;
+}
+
+.projects-section {
+    padding-top: 50px !important;
+}
+
+.skills-section {
+    padding-top: 50px !important;
+}
+
+.education-section {
+    padding-top: 50px !important;
+}
+
+.recognition-section {
+    padding-top: 50px !important;
+}
+
+.testimonials-section {
+    padding-top: 50px !important;
+}
+
+.blog-section {
+    padding-top: 50px !important;
+}
+
+.contact-section {
+    padding-top: 50px !important;
+}
+
+/* Reduce spacing in content areas */
+.about-content {
+    margin-bottom: 20px !important;
+}
+
+.experience-timeline {
+    margin-bottom: 20px !important;
+}
+
+.projects-grid {
+    gap: 20px !important; /* Reduced gap between project cards */
+}
+
+.contact-content {
+    margin-bottom: 30px !important;
+}
+
+/* Adjust all margins between content blocks */
+.timeline-item {
+    margin-bottom: 20px !important;
+}
+
+.project-card {
+    margin-bottom: 20px !important;
+}
+
+.education-card {
+    margin-bottom: 20px !important;
+}
+
+/* Adjust vertical rhythm */
+p, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 15px !important;
+}
+
+/* Make sure this CSS has priority */
+@media (max-width: 768px) {
+    section {
+        padding: 40px 0 !important;
+        margin: 10px 0 !important;
+    }
+    
+    .section-header {
+        margin-bottom: 30px !important;
+    }
+}

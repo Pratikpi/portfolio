@@ -1,0 +1,55 @@
+/* Additional responsive styles for testimonials */
+@media (max-width: 992px) {
+    .testimonials-section {
+        padding: 80px 0;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 calc(50% - 40px);
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 767px) {
+    .testimonials-section {
+        padding: 60px 0;
+    }
+    
+    .testimonial-card {
+        flex: 0 0 calc(100% - 40px);
+    }
+    
+    .testimonial-controls {
+        margin-top: 30px;
+    }
+}
+
+/* Make sure all sections have proper mobile styles */
+@media (max-width: 576px) {
+    section {
+        padding: 60px 0 !important;
+        margin: 30px 0 !important;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Force visible testimonials on all screens */
+.testimonial-card {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Force visible project cards */
+.project-card {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}

@@ -1,0 +1,375 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# celery beat schedule file
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.tmp
+*.temp
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+*:Zone.Identifier
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# node_modules (if using any Node.js tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Backup files
+*.bak
+*.backup
+*.orig
+*.save
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Editor backup files
+*~
+*.swp
+*.swo
+.#*
+#*#
+
+# Flask-specific
+.flaskenv
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads
+uploads/
+
+# Static files (when collected)
+staticfiles/
+static_collected/
+
+# Media files (when using file uploads)
+media/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Kubernetes
+k8s-secrets/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# AWS
+.aws/
+
+# Google Cloud
+.gcp/
+service-account-*.json
+
+# Local development
+.local/
+.cache/
+
+# Portfolio-specific
+# Resume files (keep one, ignore others)
+Resume*.docx
+resume*.pdf
+CV*.pdf
+!static/files/resume.pdf
+
+# Portfolio data backups
+portfolio_backup_*.json
+
+# Performance monitoring logs
+performance_*.json
+monitoring_*.log
+
+# Email test files
+test_emails/
+
+# SSL certificates (if any)
+*.pem
+*.key
+*.crt
+*.csr
+
+# Configuration files with secrets
+config_local.py
+config_secret.py
+local_settings.py
+
+# PythonAnywhere specific
+.pythonanywhere.com.access.log
+.pythonanywhere.com.error.log
+.pythonanywhere.com.server.log
+
+# Deployment artifacts
+build/
+deploy/
+release/
+
+# Health check outputs
+health_*.json
+status_*.log
+
+# Backup scripts output
+backups/
+*.tar.gz
+*.zip
+
+# Local test files
+test_*.py
+playground_*.py
+experiment_*.py
+
+# Documentation builds
+docs/build/
+site/
+
+# Temporary HTML files
+*.html.tmp
+
+# Sass cache
+.sass-cache/
+
+# CSS/JS maps
+*.map
+
+# Compiled CSS/JS (if using preprocessors)
+static/css/compiled/
+static/js/compiled/
+
+# Node.js (if using for frontend tools)
+package-lock.json
+yarn.lock
+
+# Python package builds
+*.whl
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local data files
+data/
+*.csv
+*.json.bak
+*.xlsx
+
+# System files
+.systemd/
+systemd/
+
+# Monitoring
+monitoring/
+metrics/
+
+# Cache directories
+.cache/
+cache/
+tmp/
+
+# Local scripts
+run_local.sh
+deploy_local.sh
+backup_local.sh
