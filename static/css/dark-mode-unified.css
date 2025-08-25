@@ -1,0 +1,261 @@
+/* Unified Dark Mode Styles */
+
+/* Base dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+/* Section backgrounds */
+body.dark-mode section {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode .hero-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+}
+
+body.dark-mode .projects-section,
+body.dark-mode .recognition-section,
+body.dark-mode .about-section,
+body.dark-mode .skills-section,
+body.dark-mode .education-section,
+body.dark-mode .contact-section,
+body.dark-mode .testimonials-section {
+    background: #1e1e1e !important;
+}
+
+body.dark-mode .testimonials-section {
+    background: linear-gradient(to right, #1e1e1e, #2a2a2a) !important;
+}
+
+/* Card and container styles */
+body.dark-mode .project-card,
+body.dark-mode .testimonial-card,
+body.dark-mode .contact-card,
+body.dark-mode .education-card,
+body.dark-mode .recognition-card,
+body.dark-mode .blog-card {
+    background: #2a2a2a !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Typography */
+body.dark-mode .section-title,
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6 {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .about-text,
+body.dark-mode .section-subtitle,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode .timeline-content {
+    color: #e0e0e0 !important;
+}
+
+/* Specific element styles */
+body.dark-mode .nav-link {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    color: #64b5f6 !important;
+}
+
+body.dark-mode .section-title::after {
+    background: #64b5f6 !important;
+}
+
+body.dark-mode .btn-primary {
+    background: #64b5f6 !important;
+}
+
+body.dark-mode .btn-primary:hover {
+    background: #4a90e2 !important;
+}
+
+/* Skills section */
+body.dark-mode .skill-name {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .skill-bar {
+    background: #444 !important;
+}
+
+body.dark-mode .skill-progress {
+    background: linear-gradient(90deg, #64b5f6, #4a90e2) !important;
+}
+
+/* Skill category cards */
+body.dark-mode .skill-category {
+    background-color: #2a2a2a !important;
+    border-color: #444 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .skill-category h3 {
+    color: #64b5f6 !important;
+    border-bottom-color: #444 !important;
+}
+
+body.dark-mode .skill-item {
+    border-bottom-color: #444 !important;
+}
+
+body.dark-mode .skill-name {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .skill-level {
+    color: #bbb !important;
+}
+
+/* Stats and figures */
+
+/* Skill category cards */
+body.dark-mode .skill-category {
+    background: #2a2a2a !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .category-title {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .skill-header {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .skill-percentage {
+    color: #64b5f6 !important;
+}
+
+/* Stats and figures */
+body.dark-mode .stats-item h3 {
+    color: #64b5f6 !important;
+}
+
+body.dark-mode .stats-item p {
+    color: #bbb !important;
+}
+
+/* UI elements */
+body.dark-mode .theme-toggle {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .footer {
+    background: #1a1a1a !important;
+    color: #e0e0e0 !important;
+}
+
+/* Forms and modals */
+body.dark-mode .modal-content {
+    background: #2a2a2a !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .modal-close {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #333 !important;
+    border-color: #555 !important;
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .form-group label {
+    color: #e0e0e0 !important;
+}
+
+/* About section */
+body.dark-mode .interest-tag {
+    background: #2a2a2a !important;
+    color: #64b5f6 !important;
+}
+
+body.dark-mode .interest-tag:hover {
+    background: #64b5f6 !important;
+    color: #121212 !important;
+}
+
+body.dark-mode .about-quote {
+    background: #2a2a2a !important;
+    border-left: 4px solid #64b5f6 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .about-quote i {
+    color: #64b5f6 !important;
+}
+
+body.dark-mode .highlight-item {
+    background: #2a2a2a !important;
+}
+
+body.dark-mode .highlight-number {
+    color: #64b5f6 !important;
+}
+
+/* Experience timeline */
+body.dark-mode .timeline-marker {
+    background: #64b5f6 !important;
+}
+
+body.dark-mode .timeline-content {
+    background: #2a2a2a !important;
+}
+
+body.dark-mode .job-title,
+body.dark-mode .company-name {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .job-meta {
+    color: #bbb !important;
+}
+
+body.dark-mode .achievement-list li {
+    color: #e0e0e0 !important;
+}
+
+/* Project cards */
+body.dark-mode .project-title {
+    color: #f0f0f0 !important;
+}
+
+body.dark-mode .project-description {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .tech-tag {
+    background: #444 !important;
+    color: #64b5f6 !important;
+}
+
+body.dark-mode .project-impact {
+    color: #bbb !important;
+}
+
+body.dark-mode .project-impact i {
+    color: #64b5f6 !important;
+}
+
+/* Recognition section */
+body.dark-mode .recognition-icon i {
+    color: #64b5f6 !important;
+}
+
+body.dark-mode .recognition-text {
+    color: #e0e0e0 !important;
+}

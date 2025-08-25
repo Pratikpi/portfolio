@@ -8,6 +8,10 @@ app = Flask(__name__)
 
 # Site configuration
 site_config = {
+    "site": {
+        "title": "Pratik Ingale - Portfolio",
+        "description": "Senior Software Engineer specializing in DevOps, Cloud Infrastructure, and Backend Development"
+    },
     "sections": {
         "hero": True,
         "about": True,
@@ -19,6 +23,13 @@ site_config = {
         "testimonials": False,  # Set to False to hide the testimonials section
         "blog": False,
         "contact": True
+    },
+    "features": {
+        "contact_form": True,
+        "newsletter": False,
+        "download_resume": True,
+        "dark_mode": True,
+        "animations": True
     }
 }
 
@@ -30,9 +41,9 @@ portfolio_data = {
         "location": "Bengaluru, KA",
         "phone": "+91 8310270881",
         "email": "pi.pratik.ingale@gmail.com",
-        "linkedin": "https://linkedin.com/in/pratik-ingale",
-        "github": "pratik-ingale",
-        "twitter": "https://twitter.com/pratik_ingale",
+        "linkedin": "https://linkedin.com/in/pratik-pi",
+        "github": "Pratikpi",
+        "twitter": "https://twitter.com/pi_pratik",
         "medium": "pratik.ingale",
         "bio": "I am a passionate cloud-native Python backend developer with expertise in building scalable systems and automating infrastructure. My journey in software engineering has been driven by a strong desire to create efficient, maintainable solutions that solve real-world problems. I enjoy working at the intersection of development and operations, leveraging modern DevOps practices to streamline software delivery.",
         "summary": "Cloud-native Python backend developer with 3 years of hands-on experience building scalable backend systems, automating CI/CD pipelines, and deploying containerized solutions across multi-cloud environments. Proven expertise in Kubernetes, Helm, Jenkins, Flask, and GitOps practices."
@@ -175,17 +186,6 @@ portfolio_data = {
                 "Specialized in Cloud Computing and Distributed Systems",
                 "Final year project: 'Containerized Microservices Deployment Framework'"
             ]
-        },
-        {
-            "institution": "Karnataka Pre-University Board",
-            "location": "Hubballi, KA", 
-            "degree": "Higher Secondary Education, Science Stream",
-            "period": "June 2016 – March 2018",
-            "gpa": "92.3%",
-            "achievements": [
-                "Secured 92.3% marks with distinction in Physics, Chemistry, Mathematics, and Computer Science",
-                "Ranked in the top 5% of students in the district"
-            ]
         }
     ],
     "recognition": [
@@ -238,12 +238,75 @@ portfolio_data = {
     ]
 }
 
+def filter_portfolio_data(data, config):
+    """Filter portfolio data based on site configuration"""
+    filtered_data = data.copy()
+    
+    # Remove disabled sections from data
+    if not config['sections'].get('testimonials', False):
+        filtered_data['testimonials'] = []
+    
+    if not config['sections'].get('blog', False):
+        filtered_data['blog_posts'] = []
+    
+    return filtered_data
+
+def get_enabled_sections():
+    """Get list of enabled sections for navigation"""
+    enabled_sections = []
+    section_titles = {
+        'hero': 'Home',
+        'about': 'About',
+        'experience': 'Experience', 
+        'projects': 'Projects',
+        'skills': 'Skills',
+        'education': 'Education',
+        'recognition': 'Recognition',
+        'testimonials': 'Testimonials',
+        'blog': 'Blog',
+        'contact': 'Contact'
+    }
+    
+    for section, enabled in site_config['sections'].items():
+        if enabled:
+            enabled_sections.append({
+                'id': section,
+                'title': section_titles.get(section, section.title()),
+                'url': f'#{section}'
+            })
+    
+    return enabled_sections
+
 @app.route('/')
 def index():
-    return render_template('index.html', data=portfolio_data, config=site_config)
+    """Render portfolio homepage with filtered data based on configuration"""
+    # Filter data based on site configuration
+    filtered_data = filter_portfolio_data(portfolio_data, site_config)
+    
+    # Get enabled sections for navigation
+    enabled_sections = get_enabled_sections()
+    
+    return render_template('index.html', 
+                         data=filtered_data, 
+                         config=site_config,
+                         navigation=enabled_sections)
 
 @app.route('/contact', methods=['POST'])
 def contact():
+    """Handle contact form submissions - only if contact form is enabled"""
+    # Check if contact form is enabled
+    if not site_config['features'].get('contact_form', True):
+        return jsonify({
+            'status': 'error', 
+            'message': 'Contact form is currently disabled'
+        }), 403
+    
+    # Check if contact section is enabled
+    if not site_config['sections'].get('contact', True):
+        return jsonify({
+            'status': 'error', 
+            'message': 'Contact section is not available'
+        }), 403
     if request.method == 'POST':
         name = request.form.get('name')
         email = request.form.get('email')
@@ -290,11 +353,32 @@ def contact():
 
 @app.route('/download-resume')
 def download_resume():
-    # Serve the resume PDF from static folder
-    return send_from_directory('static/files', 'Pratik-Ingale_Senior-Software-Engineer.pdf', as_attachment=True)
+    """Serve resume file - only if download is enabled"""
+    # Check if resume download is enabled
+    if not site_config['features'].get('download_resume', True):
+        return jsonify({
+            'status': 'error', 
+            'message': 'Resume download is currently disabled'
+        }), 403
+    
+    try:
+        # Serve the resume PDF from static folder
+        return send_from_directory('static/files', 'Pratik-Ingale_Senior-Software-Engineer.pdf', as_attachment=True)
+    except FileNotFoundError:
+        return jsonify({
+            'status': 'error', 
+            'message': 'Resume file not found'
+        }), 404
 
 @app.route('/subscribe', methods=['POST'])
 def subscribe():
+    """Handle newsletter subscriptions - only if newsletter is enabled"""
+    # Check if newsletter feature is enabled
+    if not site_config['features'].get('newsletter', False):
+        return jsonify({
+            'status': 'error', 
+            'message': 'Newsletter subscription is currently disabled'
+        }), 403
     if request.method == 'POST':
         email = request.form.get('newsletter-email')
         
@@ -307,6 +391,27 @@ def subscribe():
             return jsonify({'status': 'error', 'message': 'Sorry, there was an error processing your subscription. Please try again later.'})
     
     return redirect(url_for('index'))
+
+@app.route('/config')
+def show_config():
+    """Show current site configuration (development only)"""
+    if app.debug:
+        return jsonify({
+            'site_config': site_config,
+            'enabled_sections': get_enabled_sections(),
+            'enabled_features': {k: v for k, v in site_config['features'].items() if v}
+        })
+    return jsonify({'status': 'error', 'message': 'Not available in production'}), 404
+
+@app.route('/health')
+def health_check():
+    """Health check endpoint"""
+    return jsonify({
+        'status': 'healthy',
+        'timestamp': datetime.now().isoformat(),
+        'sections_enabled': len([s for s in site_config['sections'].values() if s]),
+        'features_enabled': len([f for f in site_config['features'].values() if f])
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)

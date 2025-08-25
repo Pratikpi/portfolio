@@ -37,46 +37,12 @@ A modern, interactive portfolio website built with Flask showcasing professional
    ```
 6. **Visit**: `http://127.0.0.1:5000`
 
-### PythonAnywhere Deployment
-
-1. **Upload project files** to `/home/yourusername/mysite/`
-2. **Create virtual environment**:
-   ```bash
-   mkvirtualenv --python=/usr/bin/python3.10 mysite-env
-   ```
-3. **Install dependencies**:
-   ```bash
-   cd /home/yourusername/mysite
-   pip install -r requirements.txt
-   ```
-4. **Create web app** (Manual configuration, Python 3.10)
-5. **Configure WSGI file**:
-   ```python
-   import sys
-   import os
-
-   project_home = '/home/yourusername/mysite'
-   if project_home not in sys.path:
-       sys.path = [project_home] + sys.path
-
-   from app import app as application
-
-   if __name__ == "__main__":
-       application.run()
-   ```
-6. **Set virtual environment**: `/home/yourusername/.virtualenvs/mysite-env`
-7. **Configure static files**:
-   - URL: `/static/`
-   - Directory: `/home/yourusername/mysite/static/`
-8. **Reload web app**
-
 ## Technologies Used
 
 - **Backend**: Python, Flask
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Styling**: Custom CSS with modern animations
 - **Icons**: Font Awesome
-- **Deployment**: PythonAnywhere
 
 ## Project Structure
 
@@ -160,13 +126,11 @@ Modify the `skills` dictionary with your proficiency levels (0-100):
 
 For issues or questions:
 - Check the Flask documentation: https://flask.palletsprojects.com/
-- PythonAnywhere help: https://help.pythonanywhere.com/
+
 - Contact: pi.pratik.ingale@gmail.com
 
 ## License
 
-© 2024 Pratik Ingale. All rights reserved.
+© 2025 Pratik Ingale. All rights reserved.
 
 ---
-
-**Your professional portfolio is ready to showcase your expertise to the world!** 🌟

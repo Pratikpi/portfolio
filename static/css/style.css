@@ -130,7 +130,11 @@ body.dark-mode .section-title {
 
 body.dark-mode .education-section,
 body.dark-mode .education-section,
-body.dark-mode .contact-section {
+body.dark-mode .contact-section,
+body.dark-mode .projects-section,
+body.dark-mode .recognition-section,
+body.dark-mode .about-section,
+body.dark-mode .skills-section {
     background: #1e1e1e;
 }
 
@@ -180,6 +184,97 @@ body.dark-mode .btn-primary:hover {
     background: #4a90e2;
 }
 
+/* Additional dark mode styles for missing components */
+body.dark-mode .about-section {
+    background: #1e1e1e !important;
+}
+
+body.dark-mode .skills-section {
+    background: #1e1e1e !important;
+}
+
+/* General dark mode background overrides for all sections */
+body.dark-mode section {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode .about-text,
+body.dark-mode .section-subtitle,
+body.dark-mode p,
+body.dark-mode li {
+    color: #e0e0e0;
+}
+
+body.dark-mode .skill-name {
+    color: #f0f0f0;
+}
+
+body.dark-mode .skill-bar {
+    background: #444;
+}
+
+body.dark-mode .skill-progress {
+    background: linear-gradient(90deg, #64b5f6, #4a90e2);
+}
+
+body.dark-mode .stats-item h3 {
+    color: #64b5f6;
+}
+
+body.dark-mode .stats-item p {
+    color: #bbb;
+}
+
+body.dark-mode .theme-toggle {
+    color: #f0f0f0;
+}
+
+body.dark-mode .nav-link {
+    color: #e0e0e0;
+}
+
+body.dark-mode .footer {
+    background: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .modal-content {
+    background: #2a2a2a;
+    color: #f0f0f0;
+}
+
+body.dark-mode .modal-close {
+    color: #f0f0f0;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea {
+    background: #333;
+    border-color: #555;
+    color: #f0f0f0;
+}
+
+body.dark-mode .form-group label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .blog-card {
+    background: #2a2a2a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .blog-title {
+    color: #f0f0f0;
+}
+
+body.dark-mode .blog-excerpt {
+    color: #bbb;
+}
+
+body.dark-mode .blog-meta {
+    color: #888;
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -202,6 +297,7 @@ body.dark-mode .btn-primary:hover {
     align-items: center;
     color: white;
     position: relative;
+    padding: 0; /* Override default section padding */
     overflow: hidden;
     z-index: 1;
     padding-top: 70px; /* Account for fixed navbar */
@@ -337,7 +433,7 @@ body.dark-mode .btn-primary:hover {
 }
 /* Section Styles */
 section {
-    padding: 100px 0;
+    padding: 80px 0;
     position: relative;
     z-index: 1;
     overflow: visible;
@@ -583,6 +679,14 @@ section {
 /* Projects Section */
 .projects-section {
     background: white;
+}
+
+/* Ensure dark mode properly overrides section backgrounds regardless of section order */
+body.dark-mode .projects-section,
+body.dark-mode .recognition-section,
+body.dark-mode .about-section,
+body.dark-mode .skills-section {
+    background: #1e1e1e !important;
 }
 
 .projects-grid {
@@ -1497,7 +1601,7 @@ section {
     }
 
     section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
 
     .hero-title {

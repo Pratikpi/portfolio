@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html    <meta name="location" content="{{ data.personal_info.location }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark-mode-unified.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"l lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,8 +22,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/contact-fixes.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about-visibility-fixes.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/section-title-fixes.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/spacing-fixes.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/social-icons-fix.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
@@ -41,7 +43,9 @@
                 {% if config.sections.testimonials %}
                 <a href="#testimonials" class="nav-link">Testimonials</a>
                 {% endif %}
+                {% if config.sections.blog %}
                 <a href="#blog" class="nav-link">Blog</a>
+                {% endif %}
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <div class="theme-toggle" id="theme-toggle">
@@ -56,6 +60,7 @@
     </nav>
 
     <!-- Hero Section -->
+    {% if config.sections.hero %}
     <section id="home" class="hero-section">
         <div class="hero-container">
             <div class="hero-content">
@@ -91,8 +96,10 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
     <!-- About Section -->
+    {% if config.sections.about %}
     <section id="about" class="about-section" style="visibility: visible !important; display: block !important; opacity: 1 !important;">
         <div class="container">
             <div class="section-header">
@@ -131,8 +138,10 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
     <!-- Experience Section -->
+    {% if config.sections.experience %}
     <section id="experience" class="experience-section">
         <div class="container">
             <div class="section-header">
@@ -165,8 +174,10 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
     <!-- Projects Section -->
+    {% if config.sections.projects %}
     <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
@@ -203,13 +214,16 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
+    <!-- Skills Section -->
+        {% if config.sections.skills %}
     <!-- Skills Section -->
     <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
-                <p class="section-subtitle">Expertise & Proficiency Levels</p>
+                <h2 class="section-title">Skills</h2>
+                <p class="section-subtitle">Technical Expertise</p>
             </div>
             <div class="skills-content">
                 {% for category, skills in data.skills.items() %}
@@ -233,7 +247,9 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
+    {% if config.sections.education %}
     <!-- Education Section -->
     <section id="education" class="education-section">
         <div class="container">
@@ -271,7 +287,9 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
+    {% if config.sections.recognition %}
     <!-- Recognition Section -->
     <section id="recognition" class="recognition-section">
         <div class="container">
@@ -291,6 +309,7 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
     {% if config.sections.testimonials %}
     <!-- Testimonials Section -->
@@ -331,6 +350,7 @@
     {% endif %}
 
     <!-- Blog Section -->
+    {% if config.sections.blog and data.blog_posts %}
     <section id="blog" class="blog-section">
         <div class="container">
             <div class="section-header">
@@ -366,6 +386,7 @@
             </div>
         </div>
     </section>
+    {% endif %}
 
     {% if config.sections.contact %}
     <!-- Contact Section -->
@@ -419,11 +440,11 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2024 {{ data.personal_info.name }}. All rights reserved.</p>
+                <p>&copy; 2025 {{ data.personal_info.name }}. All rights reserved.</p>
                 <div class="social-links">
                     <a href="{{ data.personal_info.linkedin }}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/{{ data.personal_info.github }}" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="{{ data.personal_info.twitter }}" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="{{ data.personal_info.twitter }}" target="_blank" aria-label="X"><i class="fa-solid fa-x"></i></a>
                     <a href="https://medium.com/@{{ data.personal_info.medium }}" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
                     <a href="mailto:{{ data.personal_info.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
@@ -488,9 +509,6 @@
     
     <!-- Contact Card Fix -->
     <script src="{{ url_for('static', filename='js/contact-card-fix.js') }}"></script>
-    
-    <!-- Spacing Fix -->
-    <script src="{{ url_for('static', filename='js/spacing-fix.js') }}"></script>
     
     <!-- Testimonials Slider Script -->
     <script src="{{ url_for('static', filename='js/testimonials-slider.js') }}"></script>
