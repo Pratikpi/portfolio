@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section id="hero" class="hero-section">
+    <div class="container hero-content">
+        <span class="greeting">Hello, I'm</span>
+        <h1 class="name">{{ item.personal_info.name }}</h1>
+        <h2 class="title">{{ item.personal_info.title }}</h2>
+        <p class="bio">{{ item.personal_info.about.hero_bio }}</p>
+        <div class="hero-actions">
+            <!-- <a href="#contact" class="btn btn-primary">Get in Touch</a> -->
+            <a href="{{ url_for('main.download_resume') }}" class="btn btn-outline">Download Resume</a>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>{{ item.personal_info.about.summary }}</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="experience" class="section">
+    <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+            {% for job in item.experience %}
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>{{ job.role }} <span class="company">@ {{ job.company }}</span></h3>
+                    <span class="duration">{{ job.duration }}</span>
+                </div>
+                <!-- <span class="location">{{ job.location }}</span> -->
+                <ul class="job-description">
+                    {% for point in job.description %}
+                    <li>{{ point }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            {% for project in item.projects %}
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">{{ project.name }}</h3>
+                        {% if project.link %}
+                        <a href="{{ project.link }}" target="_blank" class="project-link" aria-label="Project Link">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                    <p class="project-description">{{ project.description }}</p>
+                    <ul class="project-tech">
+                        {% for tech in project.tech_stack %}
+                        <li>{{ tech }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="section">
+    <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            {% for category, skills in item.skills.items() %}
+            <div class="skill-category">
+                <h3>{{ category }}</h3>
+                <ul>
+                    {% for skill in skills %}
+                    <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+</section>
+
+<section id="contact" class="section contact-section">
+    <div class="container center-text">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-text">
+            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my
+            best to get back to you!
+        </p>
+        <a href="mailto:{{ item.personal_info.email }}" class="btn btn-outline big-btn">Say Hello</a>
+    </div>
+</section>
+{% endblock %}

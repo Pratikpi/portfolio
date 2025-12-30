@@ -1,136 +1,60 @@
-# Pratik Ingale - Portfolio Website
+# Portfolio - Pratik Ingale
 
-A modern, interactive portfolio website built with Flask showcasing professional experience as a Senior Software Engineer at Nokia Solutions Networks.
+A modern, responsive, and high-performance portfolio website built with **Flask** and **Vanilla CSS**. This project showcases professional experience, skills, and projects with a focus on clean architecture and premium design.
 
-## Features
+## 🚀 Features
 
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **Interactive Elements**: Smooth animations, hover effects, and scroll animations
-- **Modern UI**: Clean, professional design with a cohesive color scheme
-- **Dynamic Content**: Built with Flask for easy content management
-- **Contact Form**: Working contact form for potential opportunities
-- **Skills Visualization**: Animated skill bars showing proficiency levels
-- **Project Showcase**: Detailed project cards with technologies and impact metrics
+- **Modular Backend**: Built using the Flask Application Factory pattern with Blueprints.
+- **Dynamic Content**: All portfolio data is managed in a single source of truth (`app/content.py`), making updates effortless.
+- **Premium Design**: Dark-mode first, glassmorphism UI, and fully responsive layout without heavy frameworks.
+- **Resume Download**: Integrated secure resume distribution.
+- **SEO Optimized**: Semantic HTML5 and meta tags for better visibility.
 
-## Quick Start
+## 🛠️ Technology Stack
 
-### Local Development
+- **Backend**: Python 3.x, Flask
+- **Frontend**: HTML5, CSS3 (Variables, Flexbox/Grid), ES6 JavaScript
+- **Deployment**: Ready for WSGI (Gunicorn/uWSGI) or Docker.
 
-1. **Clone/Extract the project**
-2. **Create virtual environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate    # Linux/macOS
-   venv\Scripts\activate      # Windows
-   ```
-3. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Add your images**:
-   - Add your profile picture as `static/images/profile_pic.png`
-   - Add project screenshots as `static/images/cicd_project.png` and `static/images/k8s_monitoring.png`
-
-5. **Run the application**:
-   ```bash
-   python app.py
-   ```
-6. **Visit**: `http://127.0.0.1:5000`
-
-## Technologies Used
-
-- **Backend**: Python, Flask
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Styling**: Custom CSS with modern animations
-- **Icons**: Font Awesome
-
-## Project Structure
+## 📂 Project Structure
 
 ```
-pratik_portfolio/
-├── app.py                  # Main Flask application
-├── requirements.txt        # Python dependencies
-├── README.md              # This file
-├── templates/
-│   └── index.html         # HTML template
-└── static/
-    ├── css/
-    │   └── style.css      # Stylesheet
-    ├── js/
-    │   └── script.js      # JavaScript functionality
-    └── images/
-        ├── profile_pic.png     # Your profile picture
-        ├── cicd_project.png    # Project screenshot
-        └── k8s_monitoring.png  # Project screenshot
+portfolio/
+├── app/
+│   ├── blueprints/      # Application routes (Main, etc.)
+│   ├── static/          # Static assets (CSS, JS, Files)
+│   ├── templates/       # HTML templates (Subject to Jinja2 context)
+│   ├── config.py        # Configuration settings (Dev/Prod)
+│   ├── content.py       # PURE DATA: Edit this file to update your portfolio text!
+│   └── __init__.py      # App factory
+├── run.py               # Entry point
+└── requirements.txt     # Python dependencies
 ```
 
-## Customization
+## ⚡ Quick Start
 
-### Update Personal Information
-Edit the `portfolio_data` dictionary in `app.py`:
+1.  **Clone the repository:**
+    ```bash
+    git clone <repo-url>
+    cd portfolio
+    ```
 
-```python
-"personal_info": {
-    "name": "Your Name",
-    "title": "Your Title", 
-    "email": "your.email@example.com",
-    # ... etc
-}
-```
+2.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-### Add New Projects
-Add to the `projects` list in `app.py`:
+3.  **Run the application:**
+    ```bash
+    python3 run.py
+    ```
 
-```python
-{
-    "name": "New Project",
-    "description": "Project description",
-    "technologies": ["Python", "Django"],
-    "impact": "Impact achieved",
-    "image": "new_project.png"
-}
-```
+4.  **Visit:** `http://127.0.0.1:5000`
 
-### Update Skills
-Modify the `skills` dictionary with your proficiency levels (0-100):
+## 📝 Customization
 
-```python
-"Languages & Frameworks": {
-    "Python": 90,
-    "JavaScript": 85,
-    # ... etc
-}
-```
+To update your information (About, Experience, Projects), simply edit **`app/content.py`**. The site will automatically reflect changes.
 
-## Features
+## 📄 License
 
-### Sections
-1. **Hero Section**: Professional introduction with contact information
-2. **About**: Professional summary and key achievements
-3. **Experience**: Detailed work history with accomplishments
-4. **Projects**: Key projects with technologies and impact
-5. **Skills**: Technical skills with visual proficiency indicators
-6. **Education**: Academic background
-7. **Recognition**: Awards and leadership achievements
-8. **Contact**: Contact form and information
-
-### Interactive Elements
-- Smooth scrolling navigation
-- Mobile-responsive hamburger menu
-- Animated skill bars
-- Hover effects on cards and buttons
-- Scroll-triggered animations
-- Working contact form with notifications
-
-## Support
-
-For issues or questions:
-- Check the Flask documentation: https://flask.palletsprojects.com/
-
-- Contact: pi.pratik.ingale@gmail.com
-
-## License
-
-© 2025 Pratik Ingale. All rights reserved.
-
----
+[MIT](LICENSE)
