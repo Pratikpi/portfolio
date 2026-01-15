@@ -17,12 +17,50 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
     font-family: var(--font-body);
     line-height: 1.6;
     font-size: 16px;
+}
+
+/* Typing Animation */
+.typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--accent);
+    box-sizing: content-box;
+    /* Ensures border doesn't eat into the text width */
+    /* 10 chars for "Hello, I'm" */
+    animation: typing 2s steps(10, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 10ch
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--accent)
+    }
 }
 
 a {
