@@ -1,7 +1,7 @@
 portfolio_data = {
     "personal_info": {
         "name": "Pratik Ingale",
-        "title": "Senior Software Engineer",
+        "title": "Software Developer",
         "email": "pi.pratik.ingale@gmail.com",
         "phone": "+91 8310270881",
         "location": "Bengaluru, KA",
