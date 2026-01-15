@@ -12,9 +12,9 @@ portfolio_data = {
             "medium": "pratik.ingale"
         },
         "about": {
-            "summary": "Python Backend Engineer with 3+ years of experience designing REST APIs, building multithreaded workflow orchestration systems, and developing reliable backend automation in cloud-native environments. Skilled in Python, Flask, SQLAlchemy, state-machine design, and modular backend architecture.",
-            "hero_bio": "I bridge the gap between development and operations, creating scalable and resilient infrastructure solutions.",
-            "interests": ["Cloud Architecture", "Infrastructure Automation", "Kubernetes Ecosystem", "Continuous Integration", "Python Development"]
+            "summary": "Software Developer with 3+ years of experience designing REST APIs, building multithreaded workflow orchestration systems, and developing reliable backend automation in cloud-native environments. Skilled in Python, Flask, FastAPI, SQLAlchemy, Event-Driven Architecture, and modular backend architecture.",
+            "hero_bio": "Building high-performance Python backends and automating scalable cloud infrastructure.",
+            "interests": ["Python Development", "Cloud Architecture", "Infrastructure Automation", "Kubernetes Ecosystem", "Continuous Integration"]
         }
     },
     "skills": {
@@ -87,9 +87,9 @@ portfolio_data = {
             "link": "https://github.com/pratikpi/async-workflow-orchestrator"
         },
         {
-            "name": "PyDM (In Progress)",
-            "description": "A high-performance, segmented download manager (PyDM) using Python's `asyncio` framework",
-            "tech_stack": ["Python", "asyncio", "aiohttp", "aiofiles"],
+            "name": "PyDM",
+            "description": "A high-performance, segmented download manager built with Python's asyncio. It maximizes bandwidth utilization by downloading file segments concurrently and features robust resume capabilities.",
+            "tech_stack": ["Python", "asyncio", "aiohttp", "aiofiles", "tqdm"],
             "link": "https://github.com/pratikpi/PyDM"
         }
     ]
