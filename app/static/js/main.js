@@ -1,26 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const navbar = document.querySelector('.navbar');
 
-    if (menuToggle) {
+    const hamburgerIsVisible = () => {
+        if (!menuToggle) {
+            return false;
+        }
+        return window.getComputedStyle(menuToggle).display !== 'none';
+    };
+
+    const setMenuOpen = (open) => {
+        if (!menuToggle || !navLinks) {
+            return;
+        }
+        menuToggle.classList.toggle('is-active', open);
+        navLinks.classList.toggle('active', open);
+        menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('is-active');
-            navLinks.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
+            const willOpen = !navLinks.classList.contains('active');
+            setMenuOpen(willOpen);
         });
 
-        // Close menu when a link is clicked
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                menuToggle.classList.remove('is-active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = 'auto';
+                setMenuOpen(false);
             });
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+                setMenuOpen(false);
+                menuToggle.focus();
+            }
         });
     }
 
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -35,25 +55,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
+        if (!navbar) {
+            return;
+        }
+
         const currentScroll = window.pageYOffset;
 
+        // Never hide the bar while the hamburger is the only way to open nav.
+        if (hamburgerIsVisible()) {
+            navbar.style.transform = 'translateY(0)';
+            lastScroll = currentScroll;
+            return;
+        }
+
         if (currentScroll > lastScroll && currentScroll > 80) {
-            // Scroll down
             navbar.style.transform = 'translateY(-100%)';
             navbar.style.transition = 'transform 0.3s ease-in-out';
         } else {
-            // Scroll up
             navbar.style.transform = 'translateY(0)';
         }
         lastScroll = currentScroll;
     });
 
-    // Scroll Reveal Animation
     const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"

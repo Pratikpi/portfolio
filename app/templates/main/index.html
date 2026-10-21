@@ -48,6 +48,22 @@
     </div>
 </section>
 
+<section id="education" class="section">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
+            {% for school in item.education %}
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <h3>{{ school.degree }} <span class="company">@ {{ school.institution }}</span></h3>
+                    <span class="duration">{{ school.year }}{% if school.gpa %} · GPA {{ school.gpa }}{% endif %}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 <section id="projects" class="section">
     <div class="container">
         <h2 class="section-title">Projects</h2>
@@ -58,7 +74,7 @@
                     <div class="project-header">
                         <h3 class="project-title">{{ project.name }}</h3>
                         {% if project.link %}
-                        <a href="{{ project.link }}" target="_blank" class="project-link" aria-label="Project Link">
+                        <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Project Link">
                             <i class="fas fa-external-link-alt"></i>
                         </a>
                         {% endif %}
@@ -93,14 +109,12 @@
         </div>
     </div>
 </section>
-</section>
 
 <section id="contact" class="section contact-section">
     <div class="container center-text">
         <h2 class="section-title">Get In Touch</h2>
         <p class="contact-text">
-            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my
-            best to get back to you!
+            Questions about the work, a project, or a collaboration — email is the fastest way to reach me.
         </p>
         <a href="mailto:{{ item.personal_info.email }}" class="btn btn-outline big-btn">Say Hello</a>
     </div>

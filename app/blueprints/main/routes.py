@@ -11,9 +11,13 @@ def index():
 def download_resume():
     if not current_app.config['ENABLE_RESUME_DOWNLOAD']:
         abort(404)
-    # Ensure the file exists in the right place, for now pointing to static/files
-    # In a real scenario we'd rename the uploaded PDF to a standard name or config map it
-    filename = 'Pratik-Ingale_Senior-Software-Engineer_Nokia.pdf' 
-    # Try to serve from root or static/files. 
-    # For this refactor, let's assume we'll move the file to app/static/files
-    return send_from_directory(os.path.join(current_app.root_path, 'static/files'), filename)
+    filename = 'Pratik-Ingale_Senior-Software-Engineer.pdf'
+    files_dir = os.path.join(current_app.root_path, 'static/files')
+    if not os.path.isfile(os.path.join(files_dir, filename)):
+        abort(404)
+    return send_from_directory(
+        files_dir,
+        filename,
+        as_attachment=True,
+        download_name=filename,
+    )
